@@ -1,4 +1,6 @@
-require 'crypt/blowfish'
+require 'pandora/cryptor'
+require 'pandora/errors'
+require 'faraday'
 require 'json' unless defined?(JSON)
 
 module Pandora
@@ -7,7 +9,6 @@ module Pandora
     VERSION  = '5'
 
     def initialize(options = {})
-      @partner_options = options.fetch(:partner)
       @partner_username = options.fetch(:username)
       @partner_password = options.fetch(:password)
       @partner_device = options.fetch(:device)
