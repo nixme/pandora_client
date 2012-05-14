@@ -19,7 +19,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'pandora'
+
+partner = Pandora::Partner.new(username, password, device, encryption_key, decryption_key)
+
+john = partner.login_user(john_email, john_password)   # Returns a Pandora::User
+john.stations
+
+jane = partner.login_user(jane_email, jane_pasword)
+jane.stations
+```
 
 ## Contributing
 
