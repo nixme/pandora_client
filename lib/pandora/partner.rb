@@ -1,4 +1,5 @@
-require 'pandora/client'
+require 'pandora/util/client'
+require 'pandora/util/cryptor'
 
 module Pandora
   class Partner
@@ -25,9 +26,9 @@ module Pandora
 
     def authenticate
       result = call 'auth.partnerLogin', { secure: true, encrypt: false }, {
-        username:    @partner_username,
-        password:    @partner_password,
-        deviceModel: @partner_device,
+        username:    @username,
+        password:    @password,
+        deviceModel: @device,
         version:     '5'
       }
 

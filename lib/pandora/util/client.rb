@@ -1,5 +1,4 @@
-require 'pandora/cryptor'
-require 'pandora/errors'
+require 'pandora/util/errors'
 require 'faraday'
 require 'json' unless defined?(JSON)
 
@@ -17,6 +16,9 @@ module Pandora
   #
   module Client
    private
+
+    ALL_STATE_ATTRIBUTES = [:cryptor, :user_auth_token, :partner_auth_token,
+                            :partner_id, :user_id, :time_offset]
 
     def call(method, options = { secure: false, encrypt: true }, payload = {})
       connection = (options[:secure] ? secure_connection : insecure_connection)

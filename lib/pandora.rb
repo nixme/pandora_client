@@ -1,2 +1,4 @@
 require 'pandora/version'
-require 'pandora/client'
+
+require 'pandora/partner'
+require 'pandora/user'

@@ -1,4 +1,5 @@
-require 'pandora/client'
+require 'pandora/util/client'
+require 'pandora/station'
 require 'forwardable'
 
 module Pandora
@@ -18,10 +19,8 @@ module Pandora
     end
 
     def stations
-      call('user.getStationList')['items'].map do |station_data|
-        station = Station.new(self)
-        station.load_data(station_data)
-        station
+      call('user.getStationList')['stations'].map do |station_data|
+        Station.new(self, station_data)
       end
     end
 
