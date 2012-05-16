@@ -22,6 +22,17 @@ module Pandora
       @cryptor ||= Cryptor.new(@encryption_key, @decryption_key)
     end
 
+    def marshal_dump
+      [@username, @password, @device, @encryption_key, @decryption_key,
+        @partner_id, @partner_auth_token, @time_offset]
+    end
+
+    def marshal_load(objects)
+      @username, @password, @device, @encryption_key, @decryption_key,
+        @partner_id, @partner_auth_token, @time_offset = objects
+    end
+
+
    private
 
     def authenticate

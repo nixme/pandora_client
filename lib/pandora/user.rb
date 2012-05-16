@@ -24,6 +24,14 @@ module Pandora
       end
     end
 
+    def marshal_dump
+      [@partner, @username, @password, @user_auth_token, @user_id]
+    end
+
+    def marshal_load(objects)
+      @partner, @username, @password, @user_auth_token, @user_id = objects
+    end
+
 
    private
 

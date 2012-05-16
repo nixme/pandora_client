@@ -31,6 +31,12 @@ jane = partner.login_user(jane_email, jane_pasword)
 jane.stations
 ```
 
+`Pandora::Partner` and `Pandora::User` objects can be marshalled via Ruby's
+`Marshal`. In a web application this can be useful to avoid re-authenticating on
+every request---just marshal the appropriate object to the user session or
+temporary storage. Note that the marshalled data may contain sensitive passwords
+or tokens.
+
 ## Contributing
 
 Patches and bug reports are welcome. Just send a [pull request][pullrequests] or
