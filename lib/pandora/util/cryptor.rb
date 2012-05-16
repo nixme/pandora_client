@@ -34,6 +34,12 @@ module Pandora
         sub(/^(.*?)[[:cntrl:]]*$/, '\1')            # Strip trailing junk
     end
 
+    # Override inspect so it doesn't include internal Blowfish P-array and
+    # S-boxes from the instance variables.
+    def inspect
+      to_s
+    end
+
 
    private
 
