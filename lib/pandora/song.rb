@@ -14,7 +14,7 @@ module Pandora
     DEFAULT_AUDIO_FORMATS =
       ['HTTP_32_AACPLUS_ADTS', 'HTTP_64_AACPLUS_ADTS', 'HTTP_192_MP3']
 
-    attr_reader :name, :token, :artist, :album, :album_art_url, :rating, :gain,
+    attr_reader :title, :token, :artist, :album, :album_art_url, :rating, :gain,
                 :allow_feedback, :url, :album_url, :artist_url,
                 :amazon_album_asin, :amazon_album_digital_asin,
                 :amazon_song_digital_asin, :amazon_album_url, :itunes_song_url,
@@ -37,7 +37,7 @@ module Pandora
    private
 
     def load_from_data(data, audio_formats)
-      @name = data['songName']
+      @title = data['songName']
       @token = data['trackToken']
       @artist = data['artistName']
       @album = data['albumName']
