@@ -7,10 +7,11 @@ module Pandora
     include Client
     extend Forwardable
 
-    attr_reader :id, :name, :token, :created_at, :url, :shared, :sharing_url,
+    attr_reader :id, :name, :created_at, :url, :shared, :sharing_url,
                 :quick_mix, :quick_mix_station_ids, :allow_rename,
                 :allow_add_music, :allow_delete
     attr_reader :user
+    attr_accessor :token
 
     [:quick_mix, :allow_rename, :allow_add_music, :allow_delete].each do |method|
       alias_method "#{method}?".to_sym, method
@@ -18,10 +19,9 @@ module Pandora
 
     def_delegators :@user, *Client::ALL_STATE_ATTRIBUTES
 
-
-    def initialize(user, data)
+    def initialize(user, data = nil)
       @user = user
-      load_from_data(data)
+      load_from_data(data) if data
     end
 
     def rename(new_name)

@@ -1,21 +1,8 @@
-Pandora API Ruby Client [WIP]
-=============================
+Pandora API Ruby Client
+=======================
 
 A Ruby wrapper for the [Pandora Tuner JSON API][tuner_api].
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'pandora_client'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install pandora_client
 
 ## Usage
 
@@ -37,10 +24,12 @@ every request---just marshal the appropriate object to the user session or
 temporary storage. Note that the marshalled data may contain sensitive passwords
 or tokens.
 
+
 ## Contributing
 
 Patches and bug reports are welcome. Just send a [pull request][pullrequests] or
 file an [issue][issues]. [Project changelog][changelog].
+
 
 
 [tuner_api]:      http://pan-do-ra-api.wikia.com/wiki/Json/5
