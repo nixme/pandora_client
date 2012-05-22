@@ -1,3 +1,8 @@
+## 0.1.2 (2012-05-21)
+
+* Clear authentication state when calling `Pandora::User#reauthenticate` and
+  `Pandora::Partner#reauthenticate`.
+
 ## 0.1.1 (2012-05-21)
 
 * Added `Pandora::User#reauthenticate` and `Pandora::Partner#reauthenticate` to
