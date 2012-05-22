@@ -14,12 +14,12 @@ module Pandora
       authenticate
     end
 
-    def login_user(username, password)
-      User.new(self, username, password)
+    def reauthenticate
+      authenticate
     end
 
-    def cryptor
-      @cryptor ||= Cryptor.new(@encryption_key, @decryption_key)
+    def login_user(username, password)
+      User.new(self, username, password)
     end
 
     def marshal_dump
@@ -34,6 +34,10 @@ module Pandora
 
 
    private
+
+    def cryptor
+      @cryptor ||= Cryptor.new(@encryption_key, @decryption_key)
+    end
 
     def authenticate
       result = call 'auth.partnerLogin', { secure: true, encrypt: false }, {

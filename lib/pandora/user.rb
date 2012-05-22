@@ -18,6 +18,11 @@ module Pandora
       login
     end
 
+    def reauthenticate
+      @partner.reauthenticate
+      login
+    end
+
     def stations
       call('user.getStationList')['stations'].map do |station_data|
         Station.new(self, station_data)
