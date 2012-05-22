@@ -40,6 +40,8 @@ module Pandora
     end
 
     def authenticate
+      @partner_id = @partner_auth_token = @time_offset = nil
+
       result = call 'auth.partnerLogin', { secure: true, encrypt: false }, {
         username:    @username,
         password:    @password,

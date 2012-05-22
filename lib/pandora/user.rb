@@ -41,6 +41,8 @@ module Pandora
    private
 
     def login
+      @user_auth_token = @user_id = nil
+
       result = call 'auth.userLogin', { secure: true, encrypt: true }, {
         loginType: 'user',
         username: username,
