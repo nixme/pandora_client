@@ -1,3 +1,7 @@
+## 0.1.3 (2013-03-01)
+
+* Switch to crypt19-rb gem as crypt19 was yanked.
+
 ## 0.1.2 (2012-05-21)
 
 * Clear authentication state when calling `Pandora::User#reauthenticate` and

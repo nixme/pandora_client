@@ -20,6 +20,6 @@ Gem::Specification.new do |gem|
   # Dependencies
   gem.required_ruby_version = '>= 1.9.2'
   gem.add_runtime_dependency 'faraday', '~> 0.8'
-  gem.add_runtime_dependency 'crypt19', '~> 1.2.1'
+  gem.add_runtime_dependency 'crypt19-rb', '~> 1.2.1'
   gem.add_runtime_dependency 'nokogiri', '~> 1.5.2'
 end
