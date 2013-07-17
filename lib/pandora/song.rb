@@ -11,6 +11,8 @@ module Pandora
       ['HTTP_40_AAC_MONO', 'HTTP_64_AAC', 'HTTP_64_AACPLUS',
        'HTTP_24_AACPLUS_ADTS', 'HTTP_32_AACPLUS_ADTS', 'HTTP_64_AACPLUS_ADTS',
        'HTTP_128_MP3', 'HTTP_192_MP3', 'HTTP_32_WMA']
+    ALL_AUDIO_QUALITIES =
+      [:high, :medium, :low]
     DEFAULT_AUDIO_FORMATS =
       ['HTTP_32_AACPLUS_ADTS', 'HTTP_64_AACPLUS_ADTS', 'HTTP_192_MP3']
 
@@ -59,7 +61,11 @@ module Pandora
       @album_explorer_url = data['albumExplorerUrl']
       @artist_explorer_url = data['artistDetailUrl']
 
-      @audio_url = data['audioUrl']
+      # Automagically pick best quality available.
+       @audio_url = ALL_AUDIO_QUALITIES.find do |quality|
+        data['audioUrlMap']["#{quality}Quality"]['audioUrl']
+      end
+
       @audio_urls =
         if (additional_audio_urls = data['additionalAudioUrl'])
           Hash[audio_formats.zip(additional_audio_urls)]
