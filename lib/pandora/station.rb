@@ -47,8 +47,9 @@ module Pandora
       }
 
       result['items'].map do |song_data|
+        next if song_data['adToken']
         Song.new(self, song_data, audio_formats)
-      end
+      end.compact
     end
 
 
