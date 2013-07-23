@@ -61,10 +61,15 @@ module Pandora
       @album_explorer_url = data['albumExplorerUrl']
       @artist_explorer_url = data['artistDetailUrl']
 
-      # Automagically pick best quality available.
-       @audio_url = ALL_AUDIO_QUALITIES.find do |quality|
-        data['audioUrlMap']["#{quality}Quality"]['audioUrl']
-      end
+      @audio_url =
+        if data['audioUrlMap']
+          # Automagically pick best quality available.
+          ALL_AUDIO_QUALITIES.collect do |quality|
+            data['audioUrlMap']["#{quality}Quality"]['audioUrl']
+          end.compact.first
+        else
+	  data['audioUrl']
+	end
 
       @audio_urls =
         if (additional_audio_urls = data['additionalAudioUrl'])
