@@ -9,6 +9,7 @@ A Ruby wrapper for the [Pandora Tuner JSON API][tuner_api].
 ```ruby
 require 'pandora'
 
+# partner information can be found at http://pan-do-ra-api.wikia.com/wiki/Json/5/partners
 partner = Pandora::Partner.new(username, password, device, encryption_key, decryption_key)
 
 john = partner.login_user(john_email, john_password)   # Returns a Pandora::User
